@@ -28,9 +28,9 @@
 
 	<ItemGroup>
 		<!--<ProjectReference Include="D:\Imp\DotnetProjects\ARWebSite\MyProjectAppliction\AuthentictUserBL\AuthentictUserBL.csproj" />-->
-		<ProjectReference Include="D:\Imp\DotnetProjects\ARWebSite\Bls\AuthentictUserBL\AuthentictUserBL.csproj" />
+		<ProjectReference Include="..\..\Bls\AuthentictUserBL\AuthentictUserBL.csproj" />
 		<!--<ProjectReference Include="D:\Imp\DotnetProjects\ARWebSite\BaseforDbConncetion\BaseforDbConncetion.csproj" />-->
-		<ProjectReference Include="D:\Imp\DotnetProjects\ARWebSite\Bls\CommonLib\CommonLib.csproj" />
+		<ProjectReference Include="..\..\Bls\CommonLib\CommonLib.csproj" />
 	</ItemGroup>
 
 </Project>

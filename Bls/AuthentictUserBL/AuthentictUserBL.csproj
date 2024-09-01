@@ -7,8 +7,9 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="D:\Imp\DotnetProjects\ARWebSite\Bls\CommonLib\CommonLib.csproj" />
-		<ProjectReference Include="D:\Imp\DotnetProjects\ARWebSite\Libs\BaseforDbConncetion\BaseforDbConncetion.csproj" />
+		<ProjectReference Include="..\..\Bls\CommonLib\CommonLib.csproj" />
+		<!--<ProjectReference Include="D:\CDAC\Ar3dtestclone_1\Ar-3D-E-Commerce\Bls\CommonLib\CommonLib.csproj" />-->
+		<ProjectReference Include="..\..\Libs\BaseforDbConncetion\BaseforDbConncetion.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

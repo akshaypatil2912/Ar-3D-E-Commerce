@@ -18,7 +18,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="D:\Imp\DotnetProjects\ARWebSite\Bls\CommonLib\CommonLib.csproj" />
+		<ProjectReference Include="..\..\Bls\CommonLib\CommonLib.csproj" />
 
 	</ItemGroup>
 </Project>
