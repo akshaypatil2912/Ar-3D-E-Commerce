@@ -1,0 +1,145 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Fashion Try-On</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            background-color: #222;
+            color: white;
+        }
+
+        #loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1.5em;
+            z-index: 9999;
+        }
+
+        #ui-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+            #ui-controls select, #ui-controls button {
+                padding: 10px;
+                font-size: 1em;
+                border-radius: 5px;
+                border: none;
+                background-color: #444;
+                color: white;
+                cursor: pointer;
+            }
+
+            #ui-controls select {
+                width: 200px;
+            }
+
+            #ui-controls button:hover {
+                background-color: #666;
+            }
+    </style>
+</head>
+<body>
+
+    <div id="loading">Loading AR Experience...</div>
+
+    <!-- UI Controls for changing outfit -->
+    <div id="ui-controls">
+        <select id="outfitSelector">
+            <option value="/assets/3dGlasses.glb">3dGlasses</option>
+            <option value="/assets/Glasses.glb">Glasses</option>
+            <option value="/assets/Necktie.glb">Necktie</option>
+            <!-- Add more options here if you have more models -->
+        </select>
+        <button onclick="rotateOutfit()">Rotate Outfit</button>
+        <button onclick="resizeOutfit('up')">Increase Size</button>
+        <button onclick="resizeOutfit('down')">Decrease Size</button>
+    </div>
+
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        <!-- Preload assets -->
+        <a-assets>
+            <a-asset-item id="outfit-model" src="/assets/Necktie.glb"></a-asset-item>
+        </a-assets>
+
+        <!-- Lighting -->
+        <a-entity light="type: ambient; intensity: 2.0"></a-entity>
+        <a-entity light="type: directional; intensity: 1.5; position="1 1 1"></a-entity>
+
+        <!-- Camera and user mirror -->
+        <a-entity camera position="0 1.6 0" look-controls></a-entity>
+
+        <!-- Dynamic outfit model -->
+        <a-entity id="outfit"
+                  gltf-model="#outfit-model"
+                  scale="1 1 1"
+                  position="0 1.5 -2"
+                  rotation="0 180 0">
+        </a-entity>
+
+    </a-scene>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loadingScreen = document.getElementById('loading');
+            loadingScreen.style.display = 'none';
+        });
+
+        const outfit = document.getElementById('outfit');
+        const outfitSelector = document.getElementById('outfitSelector');
+
+        outfitSelector.addEventListener('change', function () {
+            const newOutfit = outfitSelector.value;
+            outfit.setAttribute('gltf-model', newOutfit);
+        });
+
+        function rotateOutfit() {
+            const currentRotation = outfit.getAttribute('rotation');
+            outfit.setAttribute('rotation', {
+                x: currentRotation.x,
+                y: currentRotation.y + 45,
+                z: currentRotation.z
+            });
+        }
+
+        function resizeOutfit(direction) {
+            const currentScale = outfit.getAttribute('scale');
+            const factor = direction === 'up' ? 1.1 : 0.9;
+            outfit.setAttribute('scale', {
+                x: currentScale.x * factor,
+                y: currentScale.y * factor,
+                z: currentScale.z * factor
+            });
+        }
+    </script>
+
+</body>
+</html>
+

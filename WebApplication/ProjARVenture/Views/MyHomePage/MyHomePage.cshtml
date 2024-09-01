@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARVenture Daily Tools</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('hero-bg.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #00ffff;
+        }
+
+            .hero h1 {
+                font-size: 4rem;
+                margin-bottom: 20px;
+                text-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+            }
+
+            .hero p {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            .hero .cta-button {
+                padding: 15px 30px;
+                background-color: #00ffff;
+                color: #0d0d0d;
+                border: none;
+                border-radius: 5px;
+                font-size: 1.2rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+                .hero .cta-button:hover {
+                    background-color: #007a7a;
+                }
+
+        /* Main Features Section */
+        .features {
+            padding: 50px;
+            text-align: center;
+            background-color: #111;
+        }
+
+            .features h2 {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
+
+            .features .feature-item {
+                margin: 20px 0;
+                font-size: 1.3rem;
+            }
+
+            .features .cta-button {
+                padding: 12px 25px;
+                margin-top: 20px;
+                background-color: #00ffff;
+                color: #0d0d0d;
+                border: none;
+                border-radius: 5px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background-color: #0d0d0d;
+            text-align: center;
+        }
+
+            footer p {
+                margin: 0;
+                color: #bbb;
+            }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>AR Tools for Your Daily Needs</h1>
+            <p>Explore our Augmented Reality experiences that make your daily life easier</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Main Features Section -->
+    <section class="features">
+        <h2>Our AR Tools</h2>
+        <div class="feature-item">
+            <h3>AR Navigation</h3>
+            <p>Navigate your world with AR-guided directions</p>
+            <button class="cta-button" onclick="launchARFashion()">Try Now</button>
+        </div>
+        <div class="feature-item">
+            <h3>Home Design with AR</h3>
+            <p>Visualize furniture and décor in your space with AR</p>
+            <button class="cta-button" onclick="launchARDesign()">Explore Design</button>
+        </div>
+        <div class="feature-item">
+            <h3>AR Weather</h3>
+            <p>See the weather forecast through AR overlays in your environment</p>
+            <button class="cta-button" onclick="launchARWeather()">Check Weather</button>
+        </div>
+        <div class="feature-item">
+            <h3>Daily Planner in AR</h3>
+            <p>Manage your day with interactive AR reminders</p>
+            <button class="cta-button" onclick="launchARPlanner()">Manage Tasks</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 ARVenture. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function launchARFashion() {
+            
+            alert("AR Navigation launchARFashion!");
+            window.location.href = '/LaunchARFashion'
+        }
+
+        function launchARDesign() {
+            alert("AR Home Design feature coming soon!");
+            window.location.href = '/LaunchARFurniture'
+        }
+
+        function launchARWeather() {
+            alert("AR Weather feature coming soon!");
+        }
+
+        function launchARPlanner() {
+            alert("AR Daily Planner feature coming soon!");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Web">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Scripts\" />
+    <Folder Include="Views\" />
+    <Folder Include="css\" />
+    <Folder Include="controller\" />
+    <Folder Include="models\" />
+    <Folder Include="repository\" />
+    <Folder Include="service\" />
+  </ItemGroup>
+
+</Project>
