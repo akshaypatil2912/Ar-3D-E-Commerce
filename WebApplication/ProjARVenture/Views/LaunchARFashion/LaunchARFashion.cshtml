@@ -72,13 +72,15 @@
 
     <!-- UI Controls for changing outfit -->
     <div id="ui-controls">
-        <select id="outfitSelector">
+       @*  <select id="outfitSelector">
             <option value="/assets/3dGlasses.glb">3dGlasses</option>
             <option value="/assets/Glasses.glb">Glasses</option>
             <option value="/assets/Necktie.glb">Necktie</option>
             <!-- Add more options here if you have more models -->
-        </select>
+        </select> *@
         <button onclick="rotateOutfit()">Rotate Outfit</button>
+        <button onclick="rotateOutfitvertical()">Rotate Outfit vertical</button>
+        <button onclick="rotateOutfitdigonal()">Rotate Outfit digonal</button>
         <button onclick="resizeOutfit('up')">Increase Size</button>
         <button onclick="resizeOutfit('down')">Decrease Size</button>
     </div>
@@ -86,7 +88,7 @@
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         <!-- Preload assets -->
         <a-assets>
-            <a-asset-item id="outfit-model" src="/assets/Necktie.glb"></a-asset-item>
+            <a-asset-item id="outfit-model" src=""></a-asset-item>
         </a-assets>
 
         <!-- Lighting -->
@@ -107,18 +109,35 @@
     </a-scene>
 
     <script>
+
+        function getQueryparam(param) {
+            const url = new URLSearchParams(window.location.search)
+            url.get(param)
+        }
         document.addEventListener("DOMContentLoaded", function () {
+            const modelAsset= document.getElementById("outfit-model")
+            // const imageurl = () => {
+            //     // const url = new URLSearchParams(window.location.search)
+            //     // url.get('image')
+            //     new URLSearchParams(window.location.search).get('image')
+            // } 
+            let imageurl = new URLSearchParams(window.location.search).get('image');
+            if (imageurl) {
+                modelAsset.setAttribute('src', '/assets'+imageurl)
+            }
             const loadingScreen = document.getElementById('loading');
             loadingScreen.style.display = 'none';
         });
 
+       
+
         const outfit = document.getElementById('outfit');
         const outfitSelector = document.getElementById('outfitSelector');
 
-        outfitSelector.addEventListener('change', function () {
-            const newOutfit = outfitSelector.value;
-            outfit.setAttribute('gltf-model', newOutfit);
-        });
+        // outfitSelector.addEventListener('change', function () {
+        //     const newOutfit = outfitSelector.value;
+        //     outfit.setAttribute('gltf-model', newOutfit);
+        // });
 
         function rotateOutfit() {
             const currentRotation = outfit.getAttribute('rotation');
@@ -126,6 +145,24 @@
                 x: currentRotation.x,
                 y: currentRotation.y + 45,
                 z: currentRotation.z
+            });
+        }
+
+        function rotateOutfitvertical() {
+            const currentRotation = outfit.getAttribute('rotation');
+            outfit.setAttribute('rotation', {
+                x: currentRotation.x + 45,
+                y: currentRotation.y,
+                z: currentRotation.z
+            });
+        }
+
+        function rotateOutfitdigonal() {
+            const currentRotation = outfit.getAttribute('rotation');
+            outfit.setAttribute('rotation', {
+                x: currentRotation.x,
+                y: currentRotation.y,
+                z: currentRotation.z+45
             });
         }
 

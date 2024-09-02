@@ -52,10 +52,10 @@ function LoginUser() {
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
     let apiurl = 'https://localhost:7213/AuthenticteUser';
-
+    let encryptpassword = btoa(password);
     const jsonData = {
         username: username,
-        password: password
+        password: encryptpassword
     };
 
     $.ajax({
@@ -84,10 +84,11 @@ function SignupUser() {
     let password = document.getElementById("sign_password").value;
     let email = document.getElementById("sign_email").value;
     let apiurl = 'https://localhost:7213/RegisterUser';
+    let encryptpassword = btoa(password);
 
     const jsonData = {
         username: username,
-        password: password,
+        password: encryptpassword,
         email: email
     };
 
